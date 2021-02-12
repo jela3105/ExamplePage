@@ -1,0 +1,191 @@
+ https://avasquez-ve.github.io/gitCommands/			COMANDOS JAJA
+https://pandao.github.io/editor.md/en.html			EDITOR README
+
+
+cd 		Change Directory		Cambiar de directorio
+
+
+ls		List 				Listar los elementos de un carpeta
+-al						Mustra listados todos los archivos de la carpeta				
+	
+
+touch						Crear documentos txt
+
+
+mkdir		Make Directory			Crear una carpeta 
+
+
+cat						Mostrar datos de un archivo (contenido)
+> nombredearchivo				Crea un achivo txt y permite escribir algo dentro
+						del mismo(Ctrl+D para salir de ahi)
+
+
+history		History				Ver historial de comandos
+
+
+rm		Remove				Eliminar un archivo								CUIDADO
+
+
+git confing					Realiza configuraciones de git
+--global <lo que se ba agregar>
+<alias.stats> "el comando a ejecutar"		Agrega un alias llamado stats, y ejecuta el comando cada que se invoca					
+
+
+git init	Initialize			Inicializa el repositorio en la carpeta
+						donde se haga el comando (en la raiz)
+
+
+git add		Add				Pasa el archivo al estados tracked 
+						se pasa al staging (memoria ram)
+
+
+git commit 	Commit				Pasa los archivos de staging al 
+						repositorio (.git)
+
+git commit -am					Añade todo y ademas hace el commit al mismo tiempo
+						(solo sirve cuando se modifican archivos existentes)
+
+git commit --amend -m				Cambia el mensaje del ultimo commit realizado
+
+git log						Es el historial de versiones del proyecto
+--stat						Muestra cambios especificos de los archivos a partir
+						del commit(Se usa "Q" para salir)
+--graph --all --oneline				Muestra el historial de versiones del proyecto, de manera resumida
+-S "<palabra a buscar>"				Busca la palabra en los commits realizados
+
+gitk						Muestra los cambios de manera grafica con todo y ramas
+
+git show					Muestra los cambios hechos en el ultimo commit					
+
+             					Compara dos versiones poniendo primero la 
+git diff					version en la que quieres ver los cambios hechos
+<hash version>..HEAD				con respecto a otra (anterior y mas reciente)		
+
+
+git reset					Regresa a una version anterior de manera agresiva (sin regresar al futuro) 	    CUIDADO
+--soft <hash>					Regresa a la version anterior, pero sigue disponible staging
+--hard <hash>					Regresa TODO a una version anterior (borrando todo de staging)
+HEAD:						Sirve para sacar archivos del área de staging. Par que no se envien los ultimos 
+						cambios de ese archivo
+<hash HEAD>					Regresa los cambios al head anterior, justo antes de hacer el commit (este es soft)						
+
+git checkout 					Trae la version querida al archivo, para ver y posteriormente regresar
+						(nos deja volver al futuro xd)
+						Tambien permite cambiar la rama en la que nos encontramos
+
+git rm						Elimina archivos git pero no su historial del sistema de versiones
+						(si se necesita recupirar el archivo se puede)
+--cached 			 		Elimina los archivos del area staging y del proximi commit pero los 
+						mantiene en el disco duro
+--force						Elimina los archivos de Git y del disco duro(se puede recuperar los
+						archivos pero con comandos mas avanzados)
+
+git clone url					Trae un proyeto en de un repositorio remoto (una copia del master y la base
+						de datos en el repositorio local)
+
+git push					Se envia el proyecto del repositorio local al servidor remoto
+
+git fetch					Copia del repositorio remoto al local, pero no cambia nuestros archivos
+
+git merge					Fusiona la ultima version del repositorio local con los archivos
+
+git pull					Hace los conceptos de fetch y merge al mismo tiempo 
+
+
+git merge 					Trae a la rama en la que estamos la rama que especificamos
+
+git annotate					Muestra quien hizo cambios sobre un fichero
+
+git branch					Muestra las ramas que hay y en la que se encuentra ubicado
+<nombre de la rama>				Se crea una rama con el nombre puesto
+-av						Muestra las ramas asi como la version y commmit en el que se encuentran
+-d 						Borra la rama seleccionada
+-r						Muestra las ramas remotas en github
+-a						Muestra todas las ramas, locales y remotas
+
+git tag 					Muestra los tags que hay en el repositorio local
+show-ref --tags
+-a <nombre del tag> <id de commit>		Crea un nuevo tag a un commit 
+git push origin --tags.				Sube los tags a origin
+-d <nombre-del-tag>				Borra un tag en el repositorio local
+git push origin :refs/tags/nombre-del-tag.	Borra el tag del repositorio remoto
+
+git config -l					Muestra las configuraciones que tenemos en GitBash
+
+git clone URL					Clona un proyecto de GitHub
+
+git remote add origin URL			Guarda la url del repositorio de GitHub con el nombre de origin
+
+git remote					Nos dice origin				
+-v						Muestra que hay un origin (repositorio en GitHub) para hacer fetch o push
+set-url	origin push URL				Cambia la url del proyecto (https o ssh)
+
+git push origin master				Envia a origin la rama master
+
+git pull origin master				Trae el origin a la rama master
+--allow-unrelated-histories			Fusiona la rama de GitHub con la que existe localmente para hacer el merge
+						(Generalmente cuando se inicia el proyecto en GitHub y se quiere subir el local)
+
+git rebase <nombre rama>			Junta una rama con otra en una sola historia, para traerlo a 
+						master primero se hace en la rama diferente y luego en la master
+
+
+git stash					Permite guardar los cambios de manera temporal y cambiar de ramas 
+						sin hacer commit
+list						Muestra lo que se tiene "stashado"
+pop						Abre el stash que se tenia
+branch <nombre rama>				Saca el stash a una nueva rama
+drop						Borra el trabajo hecho en el stash
+
+git clean 
+--dry-run					Muestra los archivos que se van a borrar al aplicar el comando -f
+-f						Borra los archivos mostrados en dry-run
+
+
+git-cherry <hash de version>			Trae un commit viejo de otra rama a la rama en la que estamos
+						(pega el commit)
+
+git commit --ament				Los cambios hechos los va a pegar al commit anterior (primero se tiene 
+						que poner el add)
+
+git reflog 					Muestra TODO, hash y el head y la posicision en la que se encuentra
+
+git grep <palabra a buscar>			Busca la palabra en la rama en la que se encuentra
+-n <palabra a buscar>				Muestra la linea en la que se encuentra en la palabra de los archivos
+-c <palabra a buscar>				Cuenta las palaras que hay
+
+git shortlog					Muestra los commits ha hecho cada miembro del equipo
+-sn						Muestra las cantidad de commits por cada persona
+--all						Muestra todos los commits incluso los borrados
+--no-merges					No muestra los commits en los merge
+
+git blame <archivo>				Quien modifico cada cosa de un archivo
+-c						Identa un poco mejor lo que esta pasando
+-L<numerolinea>,<numerolinea>			Muestra quien modifico de linea a linea
+
+
+
+--help						Abre el manual de como funciona el comando
+
+
+git config -l					Muestra las configuraciones que tenemos en GitBash
+
+git clone URL					Clona un proyecto de GitHub
+
+git remote add origin URL			Guarda la url del repositorio de GitHub con el nombre de origin
+
+git remote					Nos dice origin				
+-v						Muestra que hay un origin (repositorio en GitHub) para hacer fetch o push
+set-url	origin push URL				Cambia la url del proyecto (https o ssh)
+
+git push origin master				Envia a origin la rama master
+
+git pull origin master				Trae el origin a la rama master
+--allow-unrelated-histories			Fusiona la rama de GitHub con la que existe localmente para hacer el merge
+						(Generalmente cuando se inicia el proyecto en GitHub y se quiere subir el local)
+
+
+
+
+
+
